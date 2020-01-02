@@ -14,7 +14,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="29dp"
         android:layout_marginTop="166dp"
-        android:hint="@string/word5" />
+        android:hint="@string/word5"
+        android:drawableLeft="@drawable/mail"/>
 
     <EditText
         android:id="@+id/pswd"
@@ -24,7 +25,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="29dp"
         android:layout_marginTop="231dp"
-        android:hint="@string/word7" />
+        android:hint="@string/word7"
+        android:drawableLeft="@drawable/lock"/>
 
 
 

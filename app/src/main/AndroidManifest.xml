@@ -24,11 +24,12 @@
             android:name=".BloodBankActivity"
             android:hardwareAccelerated="false"
             android:largeHeap="true"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.lay"></activity>
-        <activity android:name=".LoginActivity"></activity>
+            android:theme="@style/AppTheme.lay" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".UserActivity"></activity>
     </application>
 
 </manifest>

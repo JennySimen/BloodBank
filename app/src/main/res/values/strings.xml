@@ -6,15 +6,22 @@
     <string name="word3">OR</string>
     <string name="word4">Name</string>
     <string name="word5">Email</string>
-    <string name="word6">Number</string>
+    <string name="word6">Location</string>
     <string name="word7">Password</string>
     <string name="word8">Blood Group</string>
     <string name="word9">Already signed in?</string>
-    <string name="blood1">A</string>
-    <string name="blood2">B</string>
+    <string name="blood1">A+</string>
+    <string name="blood6">A-</string>
+    <string name="blood2">B+</string>
+    <string name="blood7">B-</string>
     <string name="blood3">AA</string>
     <string name="blood4">AB</string>
-    <string name="blood5">O</string>
+    <string name="blood5">O+</string>
+    <string name="blood8">O-</string>
     <string name="word10">Forgot password</string>
+    <string name="bottom1">Profile</string>
+    <string name="bottom2">Hospital</string>
+    <string name="bottom3">Request</string>
+    <string name="bottom4">History</string>
 
 </resources>
