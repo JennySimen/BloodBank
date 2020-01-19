@@ -16,7 +16,8 @@
         android:layout_marginLeft="17dp"
         android:layout_marginBottom="430dp"
         android:hint="@string/word4"
-        android:drawableLeft="@mipmap/user"/>
+        android:drawableLeft="@mipmap/user"
+        android:drawablePadding="5dp"/>
 
 
     <EditText
@@ -27,7 +28,8 @@
         android:layout_marginEnd="-2dp"
         android:layout_marginBottom="372dp"
         android:hint="@string/word5"
-        android:drawableLeft="@mipmap/mail"/>
+        android:drawableLeft="@mipmap/mail"
+        android:drawablePadding="5dp"/>
 
     <EditText
         android:layout_width="340dp"
@@ -37,7 +39,8 @@
         android:layout_marginStart="2dp"
         android:layout_marginBottom="308dp"
         android:hint="@string/word6"
-        android:drawableLeft="@mipmap/location"/>
+        android:drawableLeft="@mipmap/location"
+        android:drawablePadding="5dp"/>
 
     <EditText
         android:layout_width="344dp"
@@ -50,7 +53,8 @@
         android:layout_marginBottom="246dp"
         android:hint="@string/word7"
         android:inputType="textPassword"
-        android:drawableLeft="@mipmap/lock"/>
+        android:drawableLeft="@mipmap/lock"
+        android:drawablePadding="5dp"/>
 
     <TextView
         android:id="@+id/bg"
