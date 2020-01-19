@@ -16,7 +16,7 @@
         android:layout_marginLeft="17dp"
         android:layout_marginBottom="430dp"
         android:hint="@string/word4"
-        android:drawableLeft="@drawable/user"/>
+        android:drawableLeft="@mipmap/user"/>
 
 
     <EditText
@@ -27,7 +27,7 @@
         android:layout_marginEnd="-2dp"
         android:layout_marginBottom="372dp"
         android:hint="@string/word5"
-        android:drawableLeft="@drawable/mail"/>
+        android:drawableLeft="@mipmap/mail"/>
 
     <EditText
         android:layout_width="340dp"
@@ -37,7 +37,7 @@
         android:layout_marginStart="2dp"
         android:layout_marginBottom="308dp"
         android:hint="@string/word6"
-        android:drawableLeft="@drawable/location"/>
+        android:drawableLeft="@mipmap/location"/>
 
     <EditText
         android:layout_width="344dp"
@@ -49,7 +49,8 @@
         android:layout_marginEnd="23dp"
         android:layout_marginBottom="246dp"
         android:hint="@string/word7"
-        android:drawableLeft="@drawable/lock"/>
+        android:inputType="textPassword"
+        android:drawableLeft="@mipmap/lock"/>
 
     <TextView
         android:id="@+id/bg"
@@ -61,7 +62,7 @@
         android:layout_marginBottom="190dp"
         android:text="@string/word8"
         android:textSize="18sp"
-        android:drawableLeft="@drawable/drop"/>
+        android:drawableLeft="@mipmap/drop"/>
 
     <TextView
         android:id="@+id/already"
@@ -80,21 +81,21 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="201dp"
-        android:layout_marginTop="463dp"
-        android:layout_marginEnd="111dp"
+        android:layout_marginStart="194dp"
+        android:layout_marginTop="524dp"
+        android:layout_marginEnd="118dp"
         android:text="@string/word2"
         android:textColor="@color/splash1"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
 
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/name"
         android:layout_alignTop="@+id/bg"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="58dp"
         android:orientation="horizontal">
 
@@ -148,11 +149,12 @@
     </RadioGroup>
 
     <Button
+        android:id="@+id/regbtn"
         android:layout_width="128dp"
         android:layout_height="38dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-30dp"
-        android:layout_marginTop="403dp"
+        android:layout_marginStart="-26dp"
+        android:layout_marginTop="466dp"
         android:layout_toEndOf="@+id/bg"
         android:background="@drawable/rounded_btn"
         android:text="@string/word1"

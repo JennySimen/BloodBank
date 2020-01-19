@@ -5,26 +5,26 @@
     <item
         android:id="@+id/action_profile"
         android:enabled="true"
-        android:icon="@drawable/user"
+        android:icon="@mipmap/user"
         android:title="@string/bottom1"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_hospital"
         android:enabled="true"
-        android:icon="@drawable/hospital"
+        android:icon="@mipmap/hospital"
         android:title="@string/bottom2"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_request"
         android:enabled="true"
-        android:icon="@drawable/request"
+        android:icon="@mipmap/request"
         android:title="@string/bottom3"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_history"
         android:enabled="true"
-        android:icon="@drawable/history"
+        android:icon="@mipmap/history"
         android:title="@string/bottom4"
         app:showAsAction="ifRoom" />
 
