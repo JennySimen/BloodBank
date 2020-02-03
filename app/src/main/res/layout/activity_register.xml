@@ -80,7 +80,7 @@
         android:layout_marginBottom="-2dp"
         android:layout_toStartOf="@+id/bg"
         android:entries="@array/spinner_item"
-        android:textColor="#D81B60"  />
+        android:background="@color/btn"  />
 
 
 

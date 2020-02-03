@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView mLogin;
     private Button mRegisterBtn;
     private ProgressBar mProgressBar;
+    private Spinner mySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,27 +53,37 @@ public class RegisterActivity extends AppCompatActivity {
     private void registerNewUser() {
         mProgressBar.setVisibility(View.VISIBLE);
 
-        String email, password, name, location;
+        String email, password, name, location, bloodgroup;
         email = mEmail.getText().toString();
         password = mPassword.getText().toString();
         name = mName.getText().toString();
         location = mLocation.getText().toString();
 
+        mySpinner = (Spinner) findViewById(R.id.spinner);
+        bloodgroup = mySpinner.getSelectedItem().toString();
+
+        //getting value of spinner
+
+
         if (TextUtils.isEmpty(name)) {
-            Toast.makeText(getApplicationContext(), "Please enter User name...", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter User name", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(location)) {
-            Toast.makeText(getApplicationContext(),"Please enter yout location...",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Please enter yout location",Toast.LENGTH_LONG).show();
         }
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter password", Toast.LENGTH_LONG).show();
             return;
         }
+        if (TextUtils.isEmpty(bloodgroup)) {
+            Toast.makeText(getApplicationContext(),"please choose a blood group",Toast.LENGTH_LONG).show();
+        }
+
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
