@@ -21,6 +21,7 @@
 
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/name"
@@ -32,6 +33,7 @@
         android:drawablePadding="5dp"/>
 
     <EditText
+        android:id="@+id/location"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/name"
@@ -43,6 +45,7 @@
         android:drawablePadding="5dp"/>
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/name"
@@ -76,7 +79,8 @@
         android:layout_marginEnd="-208dp"
         android:layout_marginBottom="-2dp"
         android:layout_toStartOf="@+id/bg"
-        android:entries="@array/spinner_item" />
+        android:entries="@array/spinner_item"
+        android:textColor="#D81B60"  />
 
 
 
@@ -104,6 +108,7 @@
         android:textColor="#ffff" />
 
     <TextView
+        android:id="@+id/login"
         android:layout_width="76dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/already"
@@ -118,5 +123,14 @@
         android:text="@string/word2"
         android:textColor="@color/splash1"
         android:textSize="16sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:visibility="gone"/>
 
 </RelativeLayout>
