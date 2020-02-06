@@ -59,10 +59,10 @@ public class RegisterActivity extends AppCompatActivity {
         name = mName.getText().toString();
         location = mLocation.getText().toString();
 
+        //getting value of spinner
+
         mySpinner = (Spinner) findViewById(R.id.spinner);
         bloodgroup = mySpinner.getSelectedItem().toString();
-
-        //getting value of spinner
 
 
         if (TextUtils.isEmpty(name)) {

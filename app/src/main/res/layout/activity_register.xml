@@ -46,18 +46,18 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="344dp"
+        android:layout_width="353dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/name"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
-        android:layout_marginEnd="23dp"
+        android:layout_marginEnd="13dp"
         android:layout_marginBottom="246dp"
-        android:hint="@string/word7"
-        android:inputType="textPassword"
         android:drawableLeft="@mipmap/lock"
-        android:drawablePadding="5dp"/>
+        android:drawablePadding="5dp"
+        android:hint="@string/word7"
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/bg"
