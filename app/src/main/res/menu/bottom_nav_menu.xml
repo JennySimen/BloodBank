@@ -25,6 +25,13 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/action_notification"
+        android:enabled="true"
+        android:icon="@mipmap/notification"
+        android:title="@string/bottom6"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_history"
         android:enabled="true"
         android:icon="@mipmap/history"

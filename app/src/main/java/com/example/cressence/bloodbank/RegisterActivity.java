@@ -27,7 +27,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText mName, mEmail, mLocation, mPassword;
     private TextView mLogin;
     private Button mRegisterBtn;
-    private ProgressBar mProgressBar;
     private Spinner mySpinner;
 
     @Override
@@ -51,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerNewUser() {
-        mProgressBar.setVisibility(View.VISIBLE);
+
 
         String email, password, name, location, bloodgroup;
         email = mEmail.getText().toString();
@@ -91,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
-                            mProgressBar.setVisibility(View.GONE);
+
 
                             //send verification email
 
@@ -100,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(intent2);
                         } else {
                             Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
-                            mProgressBar.setVisibility(View.GONE);
+
                         }
                     }
                 });
@@ -108,8 +107,8 @@ public class RegisterActivity extends AppCompatActivity {
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent2);
+                Intent intent3 = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent3);
             }
         });
     }
@@ -117,7 +116,6 @@ public class RegisterActivity extends AppCompatActivity {
         //declare buttons
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
-        mProgressBar = findViewById(R.id.progressBar);
         mLocation = findViewById(R.id.location);
         mName = findViewById(R.id.name);
     }

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.CirclePageIndicator;
 import com.synnapps.carouselview.ImageListener;
 
 
