@@ -30,7 +30,7 @@ public class UserActivity extends AppCompatActivity {
                         selectedfragment = ProfileFragment.newInstance();
                         break;
                     case R.id.action_hospital:
-                        Toast.makeText(UserActivity.this, "Hospital", Toast.LENGTH_SHORT).show();
+                        selectedfragment = HospitalFragment.newInstance();
                         break;
                     case R.id.action_history:
                         Toast.makeText(UserActivity.this, "History", Toast.LENGTH_SHORT).show();
