@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "610472081956",
-    "firebase_url": "https://bloodbank-62446.firebaseio.com",
-    "project_id": "bloodbank-62446",
-    "storage_bucket": "bloodbank-62446.appspot.com"
+    "project_number": "764874426024",
+    "firebase_url": "https://bloodbank-235ad.firebaseio.com",
+    "project_id": "bloodbank-235ad",
+    "storage_bucket": "bloodbank-235ad.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:610472081956:android:125e0cc500bc6dafbc76b1",
+        "mobilesdk_app_id": "1:764874426024:android:fec002602d084cb2b4249d",
         "android_client_info": {
           "package_name": "com.example.cressence.bloodbank"
         }
       },
       "oauth_client": [
         {
-          "client_id": "610472081956-qeeakli34812begb9svecg8n4eo7aktm.apps.googleusercontent.com",
+          "client_id": "764874426024-ev26dhsmfh2m6dk4bhvus4ui2ukrtu3l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyABnVaQF1SxRzKR4N_TO-0QZx4eet6HZUE"
+          "current_key": "AIzaSyBf3MMLDj8CIL_2IC2wTt_NMh-ooNq7RnY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "610472081956-qeeakli34812begb9svecg8n4eo7aktm.apps.googleusercontent.com",
+              "client_id": "764874426024-ev26dhsmfh2m6dk4bhvus4ui2ukrtu3l.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

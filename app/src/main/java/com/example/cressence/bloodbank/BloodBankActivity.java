@@ -49,8 +49,8 @@ public class BloodBankActivity extends AppCompatActivity {
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(BloodBankActivity.this, LoginActivity.class);
-                startActivity(intent2);
+                Intent intent4 = new Intent(BloodBankActivity.this, LoginActivity.class);
+                startActivity(intent4);
             }
         });
     }

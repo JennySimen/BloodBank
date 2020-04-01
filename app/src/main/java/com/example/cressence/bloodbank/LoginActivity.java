@@ -4,81 +4,149 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
 
-    private EditText mEmail;
+    private TextView mReg;
+    private EditText mName;
     private EditText mPswd;
     private Button mLoginBtn;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuth = FirebaseAuth.getInstance();
+        mName = (EditText) findViewById(R.id.name2);
+        mPswd= (EditText) findViewById(R.id.pswd);
 
-        initializeUI();
 
+        //if user presses on login
+        //calling the method login
+        mLoginBtn = (Button) findViewById(R.id.login_btn);
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                loginUserAccount();
+            public void onClick(View view) {
+                userLogin();
             }
         });
 
-    }
+        //if user presses on not registered
+        mReg = (TextView) findViewById(R.id.register2);
+        mReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //open register screen
+                finish();
+                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+            }
+        });
+        }
 
+    private void userLogin() {
+        //first getting the values
+        final String username = mName.getText().toString();
+        final String password = mPswd.getText().toString();
 
-    private void loginUserAccount() {
-
-        String email, password;
-        email = mEmail.getText().toString();
-        password = mPswd.getText().toString();
-
-        if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
+        //validating inputs
+        if (TextUtils.isEmpty(username)) {
+            mName.setError("Please enter your username");
+            mName.requestFocus();
             return;
         }
+
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
+            mPswd.setError("Please enter your password");
+            mPswd.requestFocus();
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+        //if everything is fine
 
-                            Intent intent3 = new Intent(LoginActivity.this, UserActivity.class);
-                            startActivity(intent3);
-                        }
-                        else {
-                            Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
-                        }
+        class UserLogin extends AsyncTask<Void, Void, String> {
+
+            ProgressBar progressBar;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                progressBar = (ProgressBar) findViewById(R.id.progressBar);
+                progressBar.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                progressBar.setVisibility(View.GONE);
+
+
+                try {
+                    //converting response to json object
+                    JSONObject obj = new JSONObject(s);
+
+                    //if no error in response
+                    if (!obj.getBoolean("error")) {
+                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                        //getting the user from the response
+                        JSONObject userJson = obj.getJSONObject("user");
+
+                        //creating a new user object
+                        User user = new User(
+                                userJson.getInt("id"),
+                                userJson.getString("username"),
+                                userJson.getString("email"),
+                                userJson.getString("location")
+                        );
+
+                        //storing the user in shared preferences
+                        PrefManager.getInstance(getApplicationContext()).userLogin(user);
+
+                        //starting the profile activity
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
                     }
-                });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                //creating request handler object
+                RequestHandler requestHandler = new RequestHandler();
+
+                //creating request parameters
+                HashMap<String, String> params = new HashMap<>();
+                params.put("username", username);
+                params.put("password", password);
+
+                //returing the response
+                return requestHandler.sendPostRequest(URLS.URL_LOGIN, params);
+            }
+        }
+
+        UserLogin ul = new UserLogin();
+        ul.execute();
     }
 
-    private void initializeUI() {
-        mEmail = findViewById(R.id.email2);
-        mPswd= findViewById(R.id.pswd);
-        mLoginBtn = findViewById(R.id.login_btn);
-
     }
-}
+

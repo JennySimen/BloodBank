@@ -18,6 +18,7 @@
     <string name="bottom5">Home</string>
     <string name="bottom6">Notification</string>
     <string-array name="spinner_item">
+        <item>Enter blood type</item>
         <item>A+</item>
         <item>A-</item>
         <item>B+</item>
@@ -28,4 +29,18 @@
         <item>O-</item>
     </string-array>
 
+    <string name="person1">Jane Doe</string>
+    <string name="welcome">Welcome,</string>
+    <string name="text">Your blood can save lives checkout the notifications to donate today</string>
+    <string name="book">Start Today</string>
+    <string name="card1">Countdown</string>
+    <string name="card2">Days till you can donate again</string>
+    <string name="appointment">Book appointment</string>
+    <string name="appoint">No appointment yet</string>
+    <string name="info1">About donating blood
+    Find out if you are eligible and the process</string>
+    <string name="info3">About bloodbank services</string>
+    <string name="info4">Learn more about us</string>
+    <string name="info5">Need help or simply want to get in touch</string>
+    <string name="days">Days until donation</string>
 </resources>
