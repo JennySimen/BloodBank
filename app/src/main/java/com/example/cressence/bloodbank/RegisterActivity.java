@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText mName, mEmail, mLocation, mPassword;
     private TextView mLogin;
     private Button mRegisterBtn;
-
+//    private  ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         //if the user is already logged in we will directly start the profile activity
         if (PrefManager.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, ProfileFragment.class));
+            startActivity(new Intent(this, UserActivity.class));
             return;
         }
 
@@ -48,17 +48,18 @@ public class RegisterActivity extends AppCompatActivity {
         mLocation = (EditText) findViewById(R.id.location);
 
 
-       mRegisterBtn = (Button) findViewById(R.id.regbtn);
-       mRegisterBtn.setOnClickListener(new View.OnClickListener() {
+        mRegisterBtn = (Button) findViewById(R.id.regbtn);
+        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //if user pressed on button register
                 //here we will register the user to server
                 registerUser();
+
             }
         });
 
-        mLogin = (TextView)findViewById(R.id.login);
+        mLogin = (TextView) findViewById(R.id.login);
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
     }
+
     private void registerUser() {
         final String username = mName.getText().toString().trim();
         final String email = mEmail.getText().toString().trim();
@@ -102,14 +104,16 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+
         //if it passes all the validations
 
         class RegisterUser extends AsyncTask<Void, Void, String> {
+            public ProgressBar progressBar;
 
-            private ProgressBar progressBar;
 
             @Override
             protected String doInBackground(Void... voids) {
+                Log.i("main", URLS.URL_REGISTER);
                 //creating request handler object
                 RequestHandler requestHandler = new RequestHandler();
 
@@ -120,8 +124,6 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("password", password);
                 params.put("locations", location);
 
-                //creating user
-                Log.i("making request","This isn't working");
 
                 //returing the response
                 return requestHandler.sendPostRequest(URLS.URL_REGISTER, params);
@@ -130,7 +132,9 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                //displaying the progress bar while user registers on the server
+                Log.i("Before", "the pre function");
+//                displaying the progress bar while user registers on the server
+                mRegisterBtn.setVisibility(View.GONE);
                 progressBar = (ProgressBar) findViewById(R.id.progressBar);
                 progressBar.setVisibility(View.VISIBLE);
             }
@@ -138,7 +142,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                //hiding the progressbar after completion
+                Log.i("post", "the after function");
+//                hiding the progressbar after completion
                 progressBar.setVisibility(View.GONE);
 
                 try {
@@ -165,7 +170,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         //starting the profile activity
                         finish();
-                        startActivity(new Intent(getApplicationContext(),HomeFragment.class));
+                        startActivity(new Intent(getApplicationContext(),UserActivity.class));
                     } else {
                         Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
                     }
@@ -175,9 +180,10 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
 
-        //executing the async task
-        RegisterUser ru = new RegisterUser();
+            //executing the async task
+            RegisterUser ru = new RegisterUser();
         ru.execute();
+        }
+
     }
 
-}

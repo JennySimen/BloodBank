@@ -103,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                     //if no error in response
                     if (!obj.getBoolean("error")) {
                         Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), UserActivity.class));
 
                         //getting the user from the response
                         JSONObject userJson = obj.getJSONObject("user");
@@ -120,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         //starting the profile activity
                         finish();
-                        startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+                        startActivity(new Intent(getApplicationContext(), UserActivity.class));
                     } else {
                         Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
                     }

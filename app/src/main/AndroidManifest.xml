@@ -25,12 +25,17 @@
             android:name=".BloodBankActivity"
             android:hardwareAccelerated="false"
             android:largeHeap="true"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.lay" />
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".UserActivity"></activity>
+        <activity android:name=".UserActivity">
+
+        </activity>
+
+        <meta-data android:name="OnlineMaps.Key"
+            android:value="A4vnTahrxNipAn3Gim9zFAynia4wdbvv" />
     </application>
 
 </manifest>

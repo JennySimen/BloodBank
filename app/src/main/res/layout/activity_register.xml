@@ -50,7 +50,7 @@
         android:id="@+id/location"
         android:layout_width="369dp"
         android:layout_height="53dp"
-        android:layout_alignStart="@+id/name"
+        android:layout_alignStart="@+id/email"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -167,7 +167,7 @@
     <TextView
         android:id="@+id/login"
         android:layout_width="76dp"
-        android:layout_height="25dp"
+        android:layout_height="21dp"
         android:layout_alignLeft="@id/already"
         android:layout_alignTop="@id/regbtn"
         android:layout_alignParentStart="true"
@@ -182,16 +182,29 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintHorizontal_bias="0.722"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintVertical_bias="0.936" />
 
-    <androidx.core.widget.ContentLoadingProgressBar
+    <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/already"
+        android:layout_alignTop="@id/regbtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
-        android:visibility="gone" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="384dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="79dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/regbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
