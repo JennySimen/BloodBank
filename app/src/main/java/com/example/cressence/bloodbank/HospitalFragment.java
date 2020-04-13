@@ -5,24 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-import com.tomtom.online.sdk.common.location.LatLng;
-import com.tomtom.online.sdk.map.CameraPosition;
-import com.tomtom.online.sdk.map.MapFragment;
-
-import com.tomtom.online.sdk.map.MarkerBuilder;
-import com.tomtom.online.sdk.map.OnMapReadyCallback;
-
-import com.tomtom.online.sdk.map.SimpleMarkerBalloon;
-import com.tomtom.online.sdk.map.TomtomMap;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,6 +52,10 @@ public class HospitalFragment extends Fragment {
         ReclyclerViewAdapter reclyclerViewAdapter = new ReclyclerViewAdapter(getContext(),listHospital);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecyclerView.setAdapter(reclyclerViewAdapter);
+
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(myRecyclerView.getContext(),
+//                DividerItemDecoration.VERTICAL);
+//        myRecyclerView.addItemDecoration(dividerItemDecoration);
 
         return v;
     }
