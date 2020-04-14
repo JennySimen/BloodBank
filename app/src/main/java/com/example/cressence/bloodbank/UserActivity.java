@@ -6,11 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class UserActivity extends AppCompatActivity {
+public class UserActivity extends AppCompatActivity{
 
     private BottomNavigationView bottomNavigationView;
 
@@ -32,8 +33,8 @@ public class UserActivity extends AppCompatActivity {
                     case R.id.action_hospital:
                         selectedfragment = HospitalFragment.newInstance();
                         break;
-                    case R.id.action_history:
-                        Toast.makeText(UserActivity.this, "History", Toast.LENGTH_SHORT).show();
+                    case R.id.action_appointment:
+                       selectedfragment = AppointmentFragment.newInstance();
                         break;
                     case R.id.action_home:
                         selectedfragment = HomeFragment.newInstance();
@@ -54,4 +55,9 @@ public class UserActivity extends AppCompatActivity {
         transaction.commit();
 
     }
+
+//    @Override
+//    public void onFragmentInteraction(Uri uri) {
+//
+//    }
 }
