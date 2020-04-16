@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -28,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText mName, mEmail, mLocation, mPassword;
     private TextView mLogin;
     private Button mRegisterBtn;
+    private EditText mBlood;
 //    private  ProgressBar progressBar;
 
     @Override
@@ -46,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
         mEmail = (EditText) findViewById(R.id.email);
         mPassword = (EditText) findViewById(R.id.password);
         mLocation = (EditText) findViewById(R.id.location);
+        mBlood = (EditText) findViewById(R.id.bloodtype);
 
 
         mRegisterBtn = (Button) findViewById(R.id.regbtn);
@@ -77,6 +80,9 @@ public class RegisterActivity extends AppCompatActivity {
         final String email = mEmail.getText().toString().trim();
         final String password = mPassword.getText().toString().trim();
         final String location = mLocation.getText().toString().trim();
+        final String blood = mBlood.getText().toString().trim();
+
+
 
         //first we will do the validations
 
@@ -104,6 +110,11 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        if (TextUtils.isEmpty(blood)) {
+            mBlood.setText("Enter blood type");
+            mBlood.requestFocus();
+            return;
+        }
 
         //if it passes all the validations
 
@@ -123,6 +134,7 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("email", email);
                 params.put("password", password);
                 params.put("locations", location);
+                params.put("blood", blood);
 
 
                 //returing the response
@@ -162,7 +174,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 userJson.getInt("id"),
                                 userJson.getString("username"),
                                 userJson.getString("email"),
-                                userJson.getString("locations")
+                                userJson.getString("locations"),
+                                userJson.getString("blood")
                         );
 
                         //storing the user in shared preferences

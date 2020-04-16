@@ -12,6 +12,7 @@ public class PrefManager {
     private static final String KEY_EMAIL = "keyemail";
     private static final String KEY_LOCATION = "keylocation";
     private static final String KEY_ID = "keyid";
+    private static final String KEY_BLOOD = "keyblood";
 
     private static PrefManager mInstance;
     private static Context mCtx;
@@ -36,6 +37,7 @@ public class PrefManager {
         editor.putString(KEY_USERNAME, user.getName());
         editor.putString(KEY_EMAIL, user.getEmail());
         editor.putString(KEY_LOCATION, user.getLocation());
+        editor.putString(KEY_BLOOD, user.getBlood());
         editor.apply();
     }
 
@@ -52,7 +54,8 @@ public class PrefManager {
                 sharedPreferences.getInt(KEY_ID, -1),
                 sharedPreferences.getString(KEY_USERNAME, null),
                 sharedPreferences.getString(KEY_EMAIL, null),
-                sharedPreferences.getString(KEY_LOCATION, null)
+                sharedPreferences.getString(KEY_LOCATION, null),
+                sharedPreferences.getString(KEY_BLOOD, null)
         );
     }
 

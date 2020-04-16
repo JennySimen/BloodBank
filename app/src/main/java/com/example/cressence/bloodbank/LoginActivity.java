@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mName;
     private EditText mPswd;
     private Button mLoginBtn;
-    private ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +113,8 @@ public class LoginActivity extends AppCompatActivity {
                                 userJson.getInt("id"),
                                 userJson.getString("username"),
                                 userJson.getString("email"),
-                                userJson.getString("location")
+                                userJson.getString("location"),
+                                userJson.getString("blood")
                         );
 
                         //storing the user in shared preferences
