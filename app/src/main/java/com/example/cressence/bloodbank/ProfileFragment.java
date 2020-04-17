@@ -44,8 +44,8 @@ public class ProfileFragment extends Fragment {
         //if the user is not logged in
         //starting the login activity
         if (!PrefManager.getInstance(this.getActivity()).isLoggedIn()) {
-            getActivity().finish();
-           startActivity(new Intent(getContext(), LoginActivity.class));
+//            getActivity().finish();
+//           startActivity(new Intent(getContext(), LoginActivity.class));
         }
 
 
