@@ -1,35 +1,32 @@
 package com.example.cressence.bloodbank;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.InputType;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
+import java.util.HashMap;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 public class AppointmentFragment extends Fragment {
 
@@ -79,38 +76,22 @@ private Button mCancel;
 
         hosp = view.findViewById(R.id.edit_hospital);
 
-//        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); // Make sure user insert date into edittext in this format.
-//
-//
-//
-//        try {
-//            String dob_var=(appointmentDate.getText().toString());
-//            String time_var=(appointmentTime.getText().toString());
-//
-//            dateObject = formatter.parse(dob_var);
-//
-//            date = new SimpleDateFormat("dd/MM/yyyy").format(dateObject);
-//            time = new SimpleDateFormat("h:mmaa").format(dateObject);
-//
-//        }
-//        catch (java.text.ParseException e) {
-//            e.printStackTrace();
-//        }
-
         mSave = view.findViewById(R.id.appointment_save);
         mSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hosp_data = "";
-                String date_data = "";
-                String time_data = "";
+//                String hosp_data = "";
+//                String date_data = "";
+//                String time_data = "";
+//
+//                hosp_data = hosp.getText().toString();
+//                date_data = appointmentDate.getText().toString();
+//                time_data = appointmentTime.getText().toString();
+//                String data =  "hospital: " + hosp_data + "date: "  + date_data  + "time: " + time_data;
+//
+//                Toast.makeText(getActivity(), data , Toast.LENGTH_LONG).show();
 
-                hosp_data = hosp.getText().toString();
-                date_data = appointmentDate.getText().toString();
-                time_data = appointmentTime.getText().toString();
-                String data =  "hospital: " + hosp_data + "date: "  + date_data  + "time: " + time_data;
-
-                Toast.makeText(getActivity(), data , Toast.LENGTH_LONG).show();
+                makeAppointment();
             }
         });
 
@@ -155,6 +136,121 @@ private Button mCancel;
             mTimePicker.show();
         }
 
+    private void makeAppointment() {
+//
+//        String hosp_data = "";
+//        String date_data = "";
+//        String time_data = "";
+
+//        hosp_data = hosp.getText().toString();
+//        date_data = appointmentDate.getText().toString();
+//        time_data = appointmentTime.getText().toString();
+//        String data =  "hospital: " + hosp_data + "date: "  + date_data  + "time: " + time_data;
+//
+//        Toast.makeText(getActivity(), data , Toast.LENGTH_LONG).show();
+
+        final String hospital= hosp.getText().toString().trim();
+        final String dates = appointmentDate.getText().toString().trim();
+        final String hour = appointmentTime.getText().toString().trim();
+        String data =  "hospital: " + hospital + "date: "  + dates  + "time: " + hour;
+
+        //first we will do the validations
+
+        if (TextUtils.isEmpty(hospital)) {
+            hosp.setError("Please enter hospital name");
+            hosp.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(dates)) {
+            appointmentDate.setError("Please enter the date");
+            appointmentDate.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(hour)) {
+            appointmentTime.setText("please enter a time");
+           appointmentTime.requestFocus();
+            return;
+        }
+
+        //if it passes all the validations
+
+        class BookAppointment extends AsyncTask<Void, Void, String> {
+            public ProgressBar progressBar;
+
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                Log.i("main", URLS.URL_BOOK);
+                //creating request handler object
+                RequestHandler requestHandler = new RequestHandler();
+
+                //creating request parameters
+                HashMap<String, String> params = new HashMap<>();
+                params.put("hospital", hospital);
+                params.put("dates", dates);
+                params.put("hour", hour);
+
+                //returing the response
+                return requestHandler.sendPostRequest(URLS.URL_BOOK, params);
+            }
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                Log.i("Before", "the pre function");
+//                displaying the progress bar while user registers on the server
+                //mSave.setVisibility(View.GONE);
+                Toast.makeText(getActivity(), data , Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                Log.i("post", "the after function");
+//                hiding the progressbar after completion
+//                progressBar.setVisibility(View.GONE);
+
+                try {
+                    //converting response to json object
+                    JSONObject obj = new JSONObject(s);
+
+                    //if no error in response
+                    if (!obj.getBoolean("error")) {
+                        Toast.makeText(getActivity().getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                        //getting the user from the response
+                        JSONObject userJson = obj.getJSONObject("book");
+
+                        //creating a new user object
+                        Book book = new Book(
+                                userJson.getInt("book_id"),
+                                userJson.getString("hospital"),
+                                userJson.getString("dates"),
+                                userJson.getString("hours")
+                        );
+
+                        //storing the user in shared preferences
+//                        PrefManager.getInstance(getActivity().getApplicationContext()).userLogin(book);
+
+                        //starting the profile activity
+//                        getActivity().finish();
+//                        Toast.makeText(getActivity(), data , Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getActivity().getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        //executing the async task
+        BookAppointment ba = new BookAppointment();
+        ba.execute();
+    }
 
 
 }
