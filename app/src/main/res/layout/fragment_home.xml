@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/homelayout"
+    android:scrollbars="vertical"
+    android:orientation="vertical"
+    android:overScrollMode="ifContentScrolls"
+    android:scrollbarStyle="insideOverlay">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="139dp"
         android:background="@drawable/curve">
-
     </RelativeLayout>
 
     <androidx.cardview.widget.CardView
@@ -52,35 +56,59 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="351dp"
-        android:layout_height="200dp"
+        android:layout_width="348dp"
+        android:layout_height="204dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginBottom="115dp">
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="122dp">
 
 
         <ImageView
-            android:layout_width="370dp"
-            android:layout_height="250dp"
+            android:layout_width="345dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:src="@mipmap/man" />
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/info"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:text="Learn more about blood donation process and vonlunteer to be a hero. Your blood can save at least three lives"
+            android:background="#7000"
+            android:text="@string/linktosite"
+            android:textColor="#ffff"
+            android:textColorLink="#ffff"
             android:textSize="18sp"
             android:textStyle="bold" />
 
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="346dp"
+        android:layout_height="112dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="201dp"
+            android:src="@mipmap/slogan2" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-
+            android:id="@+id/info2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#7000"
+            android:text="@string/linktosite2"
+            android:textColor="#ffff"
+            android:textColorLink="#ffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 

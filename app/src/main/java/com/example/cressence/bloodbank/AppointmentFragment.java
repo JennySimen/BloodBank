@@ -2,6 +2,7 @@ package com.example.cressence.bloodbank;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ import java.util.HashMap;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class AppointmentFragment extends Fragment {
 
@@ -80,18 +83,18 @@ private Button mCancel;
         mSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String hosp_data = "";
-//                String date_data = "";
-//                String time_data = "";
-//
-//                hosp_data = hosp.getText().toString();
-//                date_data = appointmentDate.getText().toString();
-//                time_data = appointmentTime.getText().toString();
-//                String data =  "hospital: " + hosp_data + "date: "  + date_data  + "time: " + time_data;
-//
-//                Toast.makeText(getActivity(), data , Toast.LENGTH_LONG).show();
-
                 makeAppointment();
+            }
+        });
+
+        mCancel = view.findViewById(R.id.appointment_cancel);
+        mCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //getActivity().finish();
+                AppointmentFragment.this.getActivity().finish();
+
             }
         });
 
