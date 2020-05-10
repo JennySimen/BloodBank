@@ -17,18 +17,14 @@
     <string name="bottom4">History</string>
     <string name="bottom5">Home</string>
     <string name="bottom6">Notification</string>
-    <string-array name="spinner_item">
-        <item>Enter blood type</item>
-        <item>A+</item>
-        <item>A-</item>
-        <item>B+</item>
-        <item>B-</item>
-        <item>AB+</item>
-        <item>AB-</item>
-        <item>O+</item>
-        <item>O-</item>
-    </string-array>
-
+    <string name="linktosite">
+        <a href="https://www.journalducameroun.com/en/cameroon-yaounde-central-hospital-blood-bank-receives-certification">
+            Learn more about blood donation process and vonlunteer to be a hero. Your blood can save at least three lives</a>
+    </string>
+    <string name="linktosite2">
+        <a href="https://cameroonnewsagency.com/hero-cameroon-collects-100-litres-of-blood-boost-blood-bank">
+            Be a hero today. Your blood can save at least three lives</a>
+    </string>
     <string name="person1">Jane Doe</string>
     <string name="welcome">Welcome,</string>
     <string name="text">Your blood can save lives checkout the notifications to donate today</string>
