@@ -25,7 +25,7 @@ import static androidx.media.MediaBrowserServiceCompat.RESULT_OK;
 
 public class ProfileFragment extends Fragment {
 
-    TextView textViewId, textViewUsername, textViewEmail, textViewGender;
+    TextView textViewId, textViewUsername, textViewEmail, textViewGender,textViewBlood;
 
     public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
@@ -53,6 +53,7 @@ public class ProfileFragment extends Fragment {
         textViewUsername = (TextView) v.findViewById(R.id.textViewUsername);
         textViewEmail = (TextView) v.findViewById(R.id.textViewEmail);
         textViewGender = (TextView) v.findViewById(R.id.textViewGender);
+        textViewBlood = (TextView) v.findViewById(R.id.textViewBlood);
 
 
         //getting the current user
@@ -63,6 +64,7 @@ public class ProfileFragment extends Fragment {
         textViewUsername.setText(user.getName());
         textViewEmail.setText(user.getEmail());
         textViewGender.setText(user.getLocation());
+        textViewBlood.setText(user.getBlood());
 
         //when the user presses logout button
         //calling the logout method
