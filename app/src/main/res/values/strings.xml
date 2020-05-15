@@ -19,11 +19,15 @@
     <string name="bottom6">Notification</string>
     <string name="linktosite">
         <a href="https://www.journalducameroun.com/en/cameroon-yaounde-central-hospital-blood-bank-receives-certification">
-            Learn more about blood donation process and vonlunteer to be a hero. Your blood can save at least three lives</a>
+            Learn more about blood donation process and vonlunteer to be a hero. </a>
     </string>
     <string name="linktosite2">
         <a href="https://cameroonnewsagency.com/hero-cameroon-collects-100-litres-of-blood-boost-blood-bank">
             Be a hero today. Your blood can save at least three lives</a>
+    </string>
+    <string name="more">
+        <a href="https://www.who.int/news-room/events/detail/2020/06/14/default-calendar/world-blood-donor-day-2020">
+            see more</a>
     </string>
     <string name="person1">Jane Doe</string>
     <string name="welcome">Welcome,</string>

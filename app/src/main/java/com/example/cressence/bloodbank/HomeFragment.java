@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 
 public class HomeFragment extends Fragment {
 
-    TextView donate;
+    TextView donate, health, more;
 
         public static HomeFragment newInstance() {
             HomeFragment fragment = new HomeFragment();
@@ -29,6 +29,12 @@ public class HomeFragment extends Fragment {
 
         TextView donate = view.findViewById(R.id.info);
         donate.setMovementMethod(LinkMovementMethod.getInstance());
+
+        TextView health = view.findViewById(R.id.info2);
+        health.setMovementMethod(LinkMovementMethod.getInstance());
+
+        TextView more = view.findViewById(R.id.more);
+        more.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }
