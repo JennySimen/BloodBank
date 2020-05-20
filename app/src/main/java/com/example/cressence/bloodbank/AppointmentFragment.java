@@ -42,6 +42,7 @@ private Button mCancel;
     Date dateObject;
     String date;
     String time;
+    String user_id;
 
 
 
@@ -157,6 +158,10 @@ private Button mCancel;
         final String hour = appointmentTime.getText().toString().trim();
         String data =  "hospital: " + hospital + "date: "  + dates  + "time: " + hour;
 
+        //get user
+        User user = PrefManager.getInstance(this.getActivity()).getUser();
+        user_id = String.valueOf(user.getId());
+
         //first we will do the validations
 
         if (TextUtils.isEmpty(hospital)) {
@@ -192,6 +197,7 @@ private Button mCancel;
                 //creating request parameters
                 HashMap<String, String> params = new HashMap<>();
                 params.put("hospital", hospital);
+                params.put("user_id", user_id);
                 params.put("dates", dates);
                 params.put("hour", hour);
 
@@ -231,6 +237,7 @@ private Button mCancel;
                         Book book = new Book(
                                 userJson.getInt("book_id"),
                                 userJson.getString("hospital"),
+                                userJson.getInt("user_id"),
                                 userJson.getString("dates"),
                                 userJson.getString("hours")
                         );
