@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="240dp"
+        android:layout_width="match_parent"
         android:layout_height="138dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="20dp"
@@ -50,8 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
-                    android:padding="10dp"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:padding="10dp" />
 
                 <TextView
                     android:id="@+id/textViewId"
@@ -59,7 +58,8 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="1"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -70,8 +70,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/user"
                     android:padding="10dp"
-                    android:text=""
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/textViewUsername"
@@ -79,7 +78,8 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="Jenny"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
             </TableRow>
 
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/lock"
                     android:padding="10dp"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/textViewEmail"
@@ -98,7 +98,8 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="jenny@gmail.com"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
             </TableRow>
 
@@ -109,7 +110,8 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/location"
                     android:padding="10dp"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/textViewGender"
@@ -117,7 +119,8 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="Buea"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -128,7 +131,8 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/drop"
                     android:padding="10dp"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textViewBlood"
@@ -136,7 +140,8 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="O-"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -145,8 +150,8 @@
 
         <Button
             android:id="@+id/buttonLogout"
-            android:layout_width="169dp"
-            android:layout_height="wrap_content"
+            android:layout_width="137dp"
+            android:layout_height="37dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/rounded_btn"
             android:text="Logout"
