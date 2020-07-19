@@ -27,9 +27,9 @@ public class UserActivity extends AppCompatActivity{
                 Fragment selectedfragment = null;
 
                 switch (item.getItemId()) {
-                    case R.id.action_profile:
-                        selectedfragment = ProfileFragment.newInstance();
-                        break;
+//                    case R.id.action_profile:
+//                        selectedfragment = ProfileFragment.newInstance();
+//                        break;
                     case R.id.action_hospital:
                         selectedfragment = HospitalFragment.newInstance();
                         break;
@@ -41,6 +41,9 @@ public class UserActivity extends AppCompatActivity{
                         break;
                     case  R.id.action_notification:
                        selectedfragment = NotificationFragment.newInstance();
+                        break;
+                    case  R.id.action_assistant:
+                        selectedfragment = AssistantFragment.newInstance();
                         break;
                 }
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
